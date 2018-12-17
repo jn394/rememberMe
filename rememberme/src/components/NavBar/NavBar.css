@@ -1,0 +1,17 @@
+a {
+    width: 33.33%;
+    text-align: center;
+}
+
+.navbar-brand {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.mid {
+    font-size: 30px;    
+}
+
+.scores {
+    font-size: 30px;    
+}

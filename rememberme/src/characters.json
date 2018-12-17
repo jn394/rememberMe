@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Miguel",
+        "image": "../image/miguel.png"
+    },
+    {
+        "id": 2,
+        "name": "Dante",
+        "image": "../image/dante.png"
+    },
+    {
+        "id": 3,
+        "name": "Abuelita",
+        "image": "../image/Abuelita.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Clerk",
+        "image": "../image/clerk.png"
+    },
+    {
+        "id": 5,
+        "name": "Ernesto del la Cruz",
+        "image": "../image/Ernesto_del_la_Cruz.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Frida",
+        "image": "../image/Frida.png"
+    },
+    {
+        "id": 7,
+        "name": "Mama Coco",
+        "image": "../image/mama_coco.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Mamá Imelda",
+        "image": "../image/Mamá_Imelda.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Papa",
+        "image": "../image/papa.png"
+    },
+    {
+        "id": 10,
+        "name": "Papa Julio",
+        "image": "../image/Papa_Julio.png"
+    },
+    {
+        "id": 11,
+        "name": "Tío Oscar",
+        "image": "../image/Tío_Oscar.png"
+    },
+    {
+        "id": 12,
+        "name": "Hector",
+        "image": "../image/hector.jpg"
+    }
+]

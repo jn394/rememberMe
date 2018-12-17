@@ -1,0 +1,10 @@
+.tile {
+    display: inline-block;
+    margin: 20px;
+}
+
+img {
+    height: 250px;
+    width: 200px;
+    border: solid blue 3px;
+}
