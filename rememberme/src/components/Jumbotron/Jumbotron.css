@@ -1,0 +1,15 @@
+.jumbotron {
+    background-image: url('http://images6.fanpop.com/image/photos/41200000/Coco-disney-pixar-coco-41250156-3225-2080.jpg');
+    background-size: cover;
+    height: 500px;
+    color: white;
+}
+
+.display-3 {
+    font-weight: bold;
+    margin-top: 100px;
+}
+
+.lead {
+    font-weight: bold;
+}

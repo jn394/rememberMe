@@ -1,6 +1,12 @@
 a {
     width: 33.33%;
     text-align: center;
+    
+}
+
+.navbar {
+    background-color: orange;
+    color: white;
 }
 
 .navbar-brand {
