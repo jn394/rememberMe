@@ -13,7 +13,8 @@ class PageContainer extends Component {
         score: 0,
         topScore: 0,
         pickedCharacter: "",
-        lastPicked: ""
+        lastPicked: "",
+        prompt: "Click an image to begin!"
     };
 
    gameLogic = (name) => {
@@ -23,44 +24,15 @@ class PageContainer extends Component {
         console.log("Last Picked: " + this.state.lastPicked);
 
         if(this.state.pickedCharacter !== this.state.lastPicked) {
-            let currentIndex = characters.length;
-            let temporaryValue, randomIndex;
-            
-            // While there remain elements to shuffle...
-            while (0 !== currentIndex) {
-                // Pick a remaining element...
-                randomIndex = Math.floor(Math.random() * currentIndex);
-                currentIndex -= 1;
-                
-                // And swap it with the current element.
-                temporaryValue = characters[currentIndex];
-                characters[currentIndex] = characters[randomIndex];
-                characters[randomIndex] = temporaryValue;
-            }
-            
+            this.shuffle();
 
-            // if (this.score > this.topScore){
-            //     this.topScore = this.score;
-            // }
-            // else {
-            //     this.topScore = this.topScore;
-            // }
-
-
-
+            // Needed the first setState to change the score before the checkTopScore function to work 
             this.setState({ 
+                prompt: "You Guessed Correctly!",
                 score: this.state.score + 1,
-                characters,
-                topScore: this.state.score
+                characters: this.state.characters }, () => {
+                    this.checkTopScore(this.state.score);
             });
-
-
-
-            
-            // this.checkTopScore(this.state.score);
-
-
-
 
             console.log("Picked Character: " + this.state.pickedCharacter);
             
@@ -68,22 +40,42 @@ class PageContainer extends Component {
             console.log("Last Picked: " + this.state.lastPicked);
         }
         else {
-            console.log("You already Picked that Character!!!");
-            this.setState({score: 0});
+            this.setState({
+                prompt: "You Guseed Incorrectly!",
+                score: 0
+            });
         }
     };
 
-    // checkTopScore = (score) => {
-    //     console.log("function is working")
-    //     if (score > this.state.topScore) {
-    //         this.setState({topScore: score + 1});
-    //     }
-    // };
+    shuffle = () => {
+        let currentIndex = this.state.characters.length;
+        let temporaryValue, randomIndex;
+        
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            
+            // And swap it with the current element.
+            temporaryValue = this.state.characters[currentIndex];
+            this.state.characters[currentIndex] = this.state.characters[randomIndex];
+            this.state.characters[randomIndex] = temporaryValue;
+        }
+    };
+
+    checkTopScore = (score) => {
+        console.log("function is working");
+        let newTopScore = this.state.topScore;
+        (this.state.score > this.state.topScore) ? newTopScore = this.state.score : newTopScore = this.state.topScore;
+        this.setState({topScore: newTopScore});
+    };
 
     render() {
         return (
             <div id="PageContainer">
                 <NavBar 
+                    prompt={this.state.prompt}
                     score={this.state.score}
                     topScore={this.state.topScore} 
                 />

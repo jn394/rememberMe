@@ -3,6 +3,7 @@
     margin: 20px;
     transition: all .2s ease-in-out;
     box-shadow: 5px 4px 8px 5px rgba(0, 0, 0, 0.2), 5px 6px 20px 5px rgba(0, 0, 0, 0.19);
+    border-radius: 15px;
 }
 
 .tile:hover {
@@ -13,4 +14,5 @@ img {
     height: 250px;
     width: 200px;
     border: solid rgb(141, 102, 29) 3px;
+    border-radius:  15px;
 }
