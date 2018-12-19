@@ -4,9 +4,9 @@ import './NavBar.css';
 function NavBar(prop) {
     return (
         <nav className="navbar navbar-expand-lg fixed-top">
-            <a className="navbar-brand">Remember Me</a>
-            <a className="mid">{prop.prompt}</a>
-            <a className="scores">Score: {prop.score} | Top Score: {prop.topScore}</a>
+            <h2 className="navbar-brand">Remember Me</h2>
+            <h2 className="mid">{prop.prompt}</h2>
+            <h2 className="scores">Score: {prop.score} | Top Score: {prop.topScore}</h2>
         </nav>
     );
 }
