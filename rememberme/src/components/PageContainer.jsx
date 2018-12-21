@@ -12,63 +12,46 @@ class PageContainer extends Component {
         characters,
         score: 0,
         topScore: 0,
-        pickedCharacter: "",
         lastPicked: "",
         prompt: "Click an image to begin!"
     };
 
    gameLogic = (name) => {
 
-        this.state.pickedCharacter = name
-        console.log("Picked Character: " + this.state.pickedCharacter);
+        console.log("Picked Character: " + name);
         console.log("Last Picked: " + this.state.lastPicked);
 
-        if(this.state.pickedCharacter !== this.state.lastPicked) {
-            this.shuffle();
+        if(name !== this.state.lastPicked) {
 
-            // Needed the first setState to change the score before the checkTopScore function to work 
+            this.shuffle(this.state.characters);
+
+            let newTopScore = this.state.topScore;
+
+            if (this.state.score + 1 > newTopScore) {
+                newTopScore = this.state.score +1;
+            }
+
             this.setState({ 
                 prompt: "You Guessed Correctly!",
                 score: this.state.score + 1,
-                characters: this.state.characters }, () => {
-                    this.checkTopScore(this.state.score);
-            });
+                lastPicked: name,
+                topScore: newTopScore });
 
-            console.log("Picked Character: " + this.state.pickedCharacter);
-            
-            this.state.lastPicked = this.state.pickedCharacter;
-            console.log("Last Picked: " + this.state.lastPicked);
         }
         else {
             this.setState({
-                prompt: "You Guseed Incorrectly!",
+                prompt: "You Guessed Incorrectly!",
                 score: 0
             });
         }
     };
 
-    shuffle = () => {
-        let currentIndex = this.state.characters.length;
-        let temporaryValue, randomIndex;
-        
-        // While there remain elements to shuffle...
-        while (0 !== currentIndex) {
-            // Pick a remaining element...
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
-            
-            // And swap it with the current element.
-            temporaryValue = this.state.characters[currentIndex];
-            this.state.characters[currentIndex] = this.state.characters[randomIndex];
-            this.state.characters[randomIndex] = temporaryValue;
+    shuffle = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
         }
-    };
-
-    checkTopScore = (score) => {
-        console.log("function is working");
-        let newTopScore = this.state.topScore;
-        (this.state.score > this.state.topScore) ? newTopScore = this.state.score : newTopScore = this.state.topScore;
-        this.setState({topScore: newTopScore});
+        this.setState({characters: array});
     };
 
     render() {
